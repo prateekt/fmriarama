@@ -11,7 +11,6 @@ for i=1:numWords
     cWord= imgWords{i};
     indexMap(cWord) = i;
 end
-indexMap
 
 %order F according to the mapping
 F = zeros(numWords,numFeatures);
