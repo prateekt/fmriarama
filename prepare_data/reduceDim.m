@@ -8,6 +8,24 @@ numWords = size(pData,1);
 numTrials = size(pData,2);
 numVoxels = size(pData,3);
 
+%normalize each of the 360 images
+for i=1:numWords
+    for j=1:numTrials
+        
+        %get image
+        image = pData(i,j,:);
+        
+        %normalize image to be 0 mean and 1 var
+        image_mean = mean(image);
+        image_var = var(image);
+        normalized_image = (image-image_mean)/image_var;
+        
+        %store normalized image
+        pData(i,j,:) = normalized_image;
+
+    end
+end    
+
 %compute stability scores
 stabilityScores = zeros(numVoxels,2);
 for i=1:numVoxels

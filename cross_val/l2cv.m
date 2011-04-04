@@ -69,8 +69,23 @@ for i=1:length(uniquePairs)
     s1 = F_gt_lf(1,:);
     s2 = F_gt_lf(2,:);
     
-    result = (pdist([p1;s1]) + pdist([p2;s2])) < (pdist([p1;s2]) + pdist([p2;s1]));
-
+    %compute distances
+    d1= pdist([p1;s1]);
+    d2 = pdist([p2;s2]);
+    d3 = pdist([p1;s2]);
+    d4 = pdist([p2;s1]);
+    
+    %{
+    d1 = abs(sum(p1.^3-s1.^3));
+    d2 = abs(sum(p2.^3-s2.^3));
+    d3 = abs(sum(p1.^3-s2.^3));
+    d4 = abs(sum(p2.^3-s1.^3));
+    %}
+    
+    result = (d1 + d2) < (d3 + d4);
+    
+    [d1,d2,d3,d4]
+    
     %accumulate total
     overallCorrect = overallCorrect + result;
     [overallCorrect,i]
