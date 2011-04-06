@@ -1,4 +1,4 @@
-function QStruct = sim_TopInds(voxelsSemF, M, N)
+function minDistSF = sim_TopInds(voxelsSemF, M, N)
 %M for number of top indices to rank voxel features on
 %N the number of similiar semantic categories to find for a semantic
 %category
@@ -57,6 +57,7 @@ for i=1:218
 end
 
 %convert to q's mat
+%{
 load Intel218Questions.mat;
 Q1 = cell(218,1);
 Q2 = cell(218,1);
@@ -74,3 +75,4 @@ for i=1:218
     Q6{i} = resultQs{5};
 end
 QStruct = struct('orig',Q1,'Q2',Q2, 'Q3', Q3, 'Q4', Q4, 'Q5', Q5, 'Q6', Q6);
+%}
