@@ -1,0 +1,10 @@
+[X1,F1] = loadData(1);
+[X2,F2] = loadData(2);
+[X3,F3] = loadData(3);
+[X4,F4] = loadData(4);
+[X5,F5] = loadData(5);
+[X6,F6] = loadData(6);
+[X7,F7] = loadData(7);
+[X8,F8] = loadData(8);
+[X9,F9] = loadData(9);
+save allData.mat;
