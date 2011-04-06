@@ -1,4 +1,4 @@
-function QStruct_gt = getGroundTruthQStruct(N) 
+function mostCorrSM = getGroundTruthQStruct(N) 
 
 %load data
 load Intel218Questions.mat;
@@ -32,11 +32,11 @@ for i=1:218
     featureCorr = sortrows(featureCorr,-1);
     
     %put into struct
-    mostCorrSM(i,:) = featureCorr(1:N,2);
-    
+    mostCorrSM(i,:) = featureCorr(1:N,2);   
 end
 
 %convert to QStruct
+%{
 Q1 = cell(218,1);
 Q2 = cell(218,1);
 Q3 = cell(218,1);
@@ -53,3 +53,4 @@ for i=1:218
     Q6{i} = resultQs{5};
 end
 QStruct_gt = struct('orig',Q1,'Q2',Q2, 'Q3', Q3, 'Q4', Q4, 'Q5', Q5, 'Q6', Q6);
+%}

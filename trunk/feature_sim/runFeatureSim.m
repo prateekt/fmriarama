@@ -1,4 +1,4 @@
-function QStruct = runFeatureSim(participantID)
+function minDistSF = runFeatureSim(participantID)
 
 %params 
 method = 2;
@@ -15,5 +15,5 @@ voxelsSemF = analyzeWeights(W_all, pRankedVoxels);
 
 %return
 M=10;
-N=5;
-QStruct = sim_TopInds(voxelsSemF, M, N);
+N=10;
+minDistSF = sim_TopInds(voxelsSemF, M, N);
