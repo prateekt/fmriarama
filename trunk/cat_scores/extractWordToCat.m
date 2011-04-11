@@ -5,7 +5,7 @@ wordCat = containers.Map('lolz','lolz');
 remove(wordCat,'lolz');
 
 %load data 
-load data-science-p1.mat;
+load data-science-P1.mat;
 
 for i=1:length(info1)
     
