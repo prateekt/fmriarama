@@ -1,4 +1,4 @@
-function acc = l2cv(X,F,method, lambda)
+function [acc, W_all] = l2cv(X,F,method, lambda)
 
 %size calc
 numImages = size(X,1);
@@ -32,6 +32,7 @@ end
 
 %perform each leave 2 out experiment
 overallCorrect=0;
+W_all = cell(1440,1);
 for i=1:length(uniquePairs)
     
     %get leave out pair
@@ -57,6 +58,7 @@ for i=1:length(uniquePairs)
         
     %training    
     W_exp = learnWeights(X_exp,F_exp,method, lambda);
+    W_all{i} = W_exp;
     
     %predict F for left examples
     X_lf = [X(leaveOutPair(1),:); X(leaveOutPair(2),:)];
